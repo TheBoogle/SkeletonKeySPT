@@ -3,7 +3,7 @@ using System;
 
 namespace YourNamespace
 {
-    [BepInPlugin("com.yourname.removekeyid", "Remove KeyID Requirement", "1.0.0")]
+    [BepInPlugin("com.boogle.removekeyid", "Adds the Skeleton Key Item", "1.0.1")]
     public class RemoveKeyIDPlugin : BaseUnityPlugin
     {
         public void Awake()
