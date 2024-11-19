@@ -1,0 +1,13 @@
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\SkeletonKey.dll
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\SkeletonKey.pdb
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\AnimationSystem.Types.dll
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\Assembly-CSharp.dll
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\BepInEx.dll
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\UnityEngine.CoreModule.dll
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\UnityEngine.dll
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\obj\Debug\SkeletonKey.csproj.AssemblyReference.cache
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\obj\Debug\SkeletonKey.csproj.CoreCompileInputs.cache
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\obj\Debug\Skeleton.C2D0966D.Up2Date
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\obj\Debug\SkeletonKey.dll
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\obj\Debug\SkeletonKey.pdb
+C:\Users\thebo\source\repos\SkeletonKey\SkeletonKey\bin\Debug\spt-reflection.dll
