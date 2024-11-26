@@ -1,15 +1,13 @@
 ﻿using BepInEx;
 using System;
 
-namespace YourNamespace
+namespace Boogle
 {
-    [BepInPlugin("com.boogle.removekeyid", "Adds the Skeleton Key Item", "1.0.1")]
-    public class RemoveKeyIDPlugin : BaseUnityPlugin
+    [BepInPlugin("com.boogle.skeletonkey", "Adds the Skeleton Key Item", "1.0.3")]
+    public class skeletonkey : BaseUnityPlugin
     {
         public void Awake()
         {
-            Logger.LogInfo("Loading: KeycardDoor Patch");
-
             try
             {
                 new UnlockOperationPatch().Enable();
@@ -22,8 +20,6 @@ namespace YourNamespace
                 Logger.LogError($"{GetType().Name}: {ex}");
                 throw;
             }
-
-            Logger.LogInfo("Completed: KeycardDoor Patch");
         }
 
     }

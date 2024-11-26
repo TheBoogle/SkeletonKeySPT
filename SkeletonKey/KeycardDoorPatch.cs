@@ -5,7 +5,7 @@ using EFT.InventoryLogic;
 using Diz.LanguageExtensions;
 using EFT;
 
-namespace YourNamespace
+namespace Boogle
 {
     public class KeycardDoorUnlockPatch : ModulePatch
     {
@@ -17,7 +17,7 @@ namespace YourNamespace
 
         [PatchPrefix]
         private static bool PatchPrefix(
-            ref GStruct416<KeyInteractionResultClass> __result,
+            ref GStruct448<GClass3344> __result,
             KeyComponent key,
             Player player,
             KeycardDoor __instance)
@@ -31,11 +31,11 @@ namespace YourNamespace
             }
 
             // Dynamically allow the "BoogleSkeletonKeycard"
-            bool isAuthorized = key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "BoogleSkeletonKeycard";
+            bool isAuthorized = key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e213fc6be39d06423d6b7";
 
             if (!isAuthorized)
             {
-                __result = new KeyInteractionResultClass(key, null, false);
+                __result = new GClass3344(key, null, false);
                 return false;
             }
 
@@ -46,7 +46,6 @@ namespace YourNamespace
                 var discardResult = InteractionsHandlerClass.Discard(
                     key.Item,
                     (TraderControllerClass)key.Item.Parent.GetOwner(),
-                    false,
                     false
                 );
 
@@ -58,7 +57,7 @@ namespace YourNamespace
             }
 
             // Return successful interaction
-            __result = new KeyInteractionResultClass(key, null, true);
+            __result = new GClass3344(key, null, true);
             return false;
         }
     }

@@ -5,7 +5,7 @@ using EFT;
 using EFT.InventoryLogic;
 using Diz.LanguageExtensions;
 
-namespace YourNamespace
+namespace Boogle
 {
     public class UnlockOperationPatch : ModulePatch
     {
@@ -18,7 +18,7 @@ namespace YourNamespace
 
         [PatchPrefix]
         private static bool PatchPrefix(
-            ref GStruct416<KeyInteractionResultClass> __result,
+            ref GStruct448<GClass3344> __result,
             KeyComponent key,
             Player player,
             WorldInteractiveObject __instance)
@@ -28,21 +28,21 @@ namespace YourNamespace
             {
                 __result = canInteract;
             }
-            if (!(key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "BoogleSkeletonKey"))
+            if (!(key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e1f10aaf0fe810c488218"))
             {
-                __result = new GClass3370("Key doesn't match");
+                __result = new GClass3757("Key doesn't match");
             }
-            GStruct414<GClass2799> gstruct = default(GStruct414<GClass2799>);
+            GStruct446<GClass3129> gstruct = default(GStruct446<GClass3129>);
             key.NumberOfUsages++;
             if (key.NumberOfUsages >= key.Template.MaximumNumberOfUsage && key.Template.MaximumNumberOfUsage > 0)
             {
-                gstruct = InteractionsHandlerClass.Discard(key.Item, (TraderControllerClass)key.Item.Parent.GetOwner(), false, false);
+                gstruct = InteractionsHandlerClass.Discard(key.Item, (TraderControllerClass)key.Item.Parent.GetOwner(), false);
                 if (gstruct.Failed)
                 {
                     __result = gstruct.Error;
                 }
             }
-            __result = new KeyInteractionResultClass(key, gstruct.Value, true);
+            __result = new GClass3344(key, gstruct.Value, true);
 
             return false;
         }
