@@ -32,7 +32,6 @@ namespace Boogle
 
             // Dynamically allow the "BoogleSkeletonKeycard"
             bool isAuthorized = key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e213fc6be39d06423d6b7";
-
             if (!isAuthorized)
             {
                 __result = new GClass3344(key, null, false);
@@ -54,9 +53,9 @@ namespace Boogle
                     __result = discardResult.Error;
                     return false;
                 }
+                __result = new GClass3344(key, discardResult.Value, true);
+                return false;
             }
-
-            // Return successful interaction
             __result = new GClass3344(key, null, true);
             return false;
         }
