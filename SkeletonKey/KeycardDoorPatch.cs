@@ -17,7 +17,7 @@ namespace Boogle
 
         [PatchPrefix]
         private static bool PatchPrefix(
-            ref GStruct448<GClass3344> __result,
+            ref GStruct457<GClass3424> __result,
             KeyComponent key,
             Player player,
             KeycardDoor __instance)
@@ -35,7 +35,7 @@ namespace Boogle
 
             if (!isAuthorized)
             {
-                __result = new GClass3344(key, null, false);
+                __result = new GClass3424(key, null, false);
                 return false;
             }
 
@@ -57,7 +57,7 @@ namespace Boogle
             }
 
             // Return successful interaction
-            __result = new GClass3344(key, null, true);
+            __result = new GClass3424(key, null, true);
             return false;
         }
     }

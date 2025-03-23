@@ -10,11 +10,11 @@ namespace Boogle
         protected override MethodBase GetTargetMethod()
         {
             // Target the method_0 function in Class1544
-            return typeof(Class1650).GetMethod("method_0", BindingFlags.Public | BindingFlags.Instance);
+            return typeof(Class1674).GetMethod("method_0", BindingFlags.Public | BindingFlags.Instance);
         }
 
         [PatchPrefix]
-        private static bool PatchPrefix(KeyComponent x, Class1650 __instance, ref bool __result)
+        private static bool PatchPrefix(KeyComponent x, Class1674 __instance, ref bool __result)
         {
             // Check if the key has the correct KeyId or is "BoogleSkeletonKey"
             if (x.Template.KeyId == __instance.worldInteractiveObject.KeyId || x.Template.KeyId == "673e1f10aaf0fe810c488218")

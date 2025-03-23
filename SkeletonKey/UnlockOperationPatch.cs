@@ -18,7 +18,7 @@ namespace Boogle
 
         [PatchPrefix]
         private static bool PatchPrefix(
-            ref GStruct448<GClass3344> __result,
+            ref GStruct457<GClass3424> __result,
             KeyComponent key,
             Player player,
             WorldInteractiveObject __instance)
@@ -30,9 +30,9 @@ namespace Boogle
             }
             if (!(key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e1f10aaf0fe810c488218"))
             {
-                __result = new GClass3757("Key doesn't match");
+                __result = new GClass3854("Key doesn't match");
             }
-            GStruct446<GClass3129> gstruct = default(GStruct446<GClass3129>);
+            GStruct455<GClass3200> gstruct = default(GStruct455<GClass3200>);
             key.NumberOfUsages++;
             if (key.NumberOfUsages >= key.Template.MaximumNumberOfUsage && key.Template.MaximumNumberOfUsage > 0)
             {
@@ -42,7 +42,7 @@ namespace Boogle
                     __result = gstruct.Error;
                 }
             }
-            __result = new GClass3344(key, gstruct.Value, true);
+            __result = new GClass3424(key, gstruct.Value, true);
 
             return false;
         }
