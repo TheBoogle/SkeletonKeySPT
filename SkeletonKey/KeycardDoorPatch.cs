@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
-using SPT.Reflection.Patching;
+using EFT;
 using EFT.Interactive;
 using EFT.InventoryLogic;
-using Diz.LanguageExtensions;
-using EFT;
+using SPT.Reflection.Patching;
 
 namespace Boogle
 {
@@ -23,7 +22,8 @@ namespace Boogle
             KeycardDoor __instance)
         {
             // Check if the player can interact
-            Error canInteract = player.MovementContext.CanInteract;
+            var canInteract = player.MovementContext.CanInteract;
+            
             if (canInteract != null)
             {
                 __result = canInteract;
@@ -31,7 +31,7 @@ namespace Boogle
             }
 
             // Dynamically allow the "BoogleSkeletonKeycard"
-            bool isAuthorized = key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e213fc6be39d06423d6b7";
+            var isAuthorized = key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e213fc6be39d06423d6b7";
 
             if (!isAuthorized)
             {
@@ -41,6 +41,7 @@ namespace Boogle
 
             // Simulate usage logic
             key.NumberOfUsages++;
+            
             if (key.NumberOfUsages >= key.Template.MaximumNumberOfUsage && key.Template.MaximumNumberOfUsage > 0)
             {
                 var discardResult = InteractionsHandlerClass.Discard(

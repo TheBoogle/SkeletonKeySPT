@@ -4,7 +4,7 @@ using System;
 namespace Boogle
 {
     [BepInPlugin("com.boogle.skeletonkey", "Adds the Skeleton Key Item", "1.0.4")]
-    public class skeletonkey : BaseUnityPlugin
+    public class SkeletonKey : BaseUnityPlugin
     {
         public void Awake()
         {

@@ -17,14 +17,12 @@ namespace Boogle
         private static bool PatchPrefix(KeyComponent x, Class1674 __instance, ref bool __result)
         {
             // Check if the key has the correct KeyId or is "BoogleSkeletonKey"
-            if (x.Template.KeyId == __instance.worldInteractiveObject.KeyId || x.Template.KeyId == "673e1f10aaf0fe810c488218")
-            {
-                __result = true; // Allow unlock
-                return false;    // Skip the original method
-            }
+            if (x.Template.KeyId != __instance.worldInteractiveObject.KeyId && x.Template.KeyId != "673e1f10aaf0fe810c488218") return true;
+            
+            __result = true; // Allow unlock
+            return false;    // Skip the original method
 
             // Otherwise, let the original logic handle it
-            return true;
         }
     }
 }

@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
-using SPT.Reflection.Patching;
-using EFT.Interactive;
 using EFT;
+using EFT.Interactive;
 using EFT.InventoryLogic;
-using Diz.LanguageExtensions;
+using SPT.Reflection.Patching;
 
 namespace Boogle
 {
@@ -23,7 +22,8 @@ namespace Boogle
             Player player,
             WorldInteractiveObject __instance)
         {
-            Error canInteract = player.MovementContext.CanInteract;
+            var canInteract = player.MovementContext.CanInteract;
+            
             if (canInteract != null)
             {
                 __result = canInteract;
@@ -32,7 +32,9 @@ namespace Boogle
             {
                 __result = new GClass3854("Key doesn't match");
             }
-            GStruct455<GClass3200> gstruct = default(GStruct455<GClass3200>);
+            
+            var gstruct = default(GStruct455<GClass3200>);
+            
             key.NumberOfUsages++;
             if (key.NumberOfUsages >= key.Template.MaximumNumberOfUsage && key.Template.MaximumNumberOfUsage > 0)
             {
