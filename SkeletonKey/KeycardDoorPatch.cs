@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
-using SPT.Reflection.Patching;
+using EFT;
 using EFT.Interactive;
 using EFT.InventoryLogic;
-using Diz.LanguageExtensions;
-using EFT;
+using SPT.Reflection.Patching;
 
 namespace Boogle
 {
@@ -17,13 +16,14 @@ namespace Boogle
 
         [PatchPrefix]
         private static bool PatchPrefix(
-            ref GStruct448<GClass3344> __result,
+            ref GStruct457<GClass3424> __result,
             KeyComponent key,
             Player player,
             KeycardDoor __instance)
         {
             // Check if the player can interact
-            Error canInteract = player.MovementContext.CanInteract;
+            var canInteract = player.MovementContext.CanInteract;
+            
             if (canInteract != null)
             {
                 __result = canInteract;
@@ -31,16 +31,17 @@ namespace Boogle
             }
 
             // Dynamically allow the "BoogleSkeletonKeycard"
-            bool isAuthorized = key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e213fc6be39d06423d6b7";
+            var isAuthorized = key.Template.KeyId == __instance.KeyId || key.Template.KeyId == "673e213fc6be39d06423d6b7";
 
             if (!isAuthorized)
             {
-                __result = new GClass3344(key, null, false);
+                __result = new GClass3424(key, null, false);
                 return false;
             }
 
             // Simulate usage logic
             key.NumberOfUsages++;
+            
             if (key.NumberOfUsages >= key.Template.MaximumNumberOfUsage && key.Template.MaximumNumberOfUsage > 0)
             {
                 var discardResult = InteractionsHandlerClass.Discard(
@@ -57,7 +58,7 @@ namespace Boogle
             }
 
             // Return successful interaction
-            __result = new GClass3344(key, null, true);
+            __result = new GClass3424(key, null, true);
             return false;
         }
     }
