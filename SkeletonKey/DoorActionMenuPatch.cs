@@ -10,7 +10,7 @@ namespace Boogle
 {
     internal class DoorActionMenuPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(GetActionsClass).GetMethod(nameof(GetActionsClass.smethod_13));
+        protected override MethodBase GetTargetMethod() => typeof(GetActionsClass).GetMethod(nameof(GetActionsClass.smethod_14));
 
         [PatchPostfix]
         public static void Postfix(ref ActionsReturnClass __result, GamePlayerOwner owner, Door door)
@@ -20,7 +20,7 @@ namespace Boogle
                 return;
             }
 
-            GetActionsClass.Class1610 doorUnlockAction = new GetActionsClass.Class1610
+            GetActionsClass.Class1653 doorUnlockAction = new GetActionsClass.Class1653
             {
                 owner = owner,
                 worldInteractiveObject = door as WorldInteractiveObject
@@ -28,10 +28,17 @@ namespace Boogle
 
             if (__result != null && __result.Actions != null)
             {
-                // Reducing menu clutter by only showing the "Use Skeleton Key" option if you: Have a skeleton key, and Don't have the original key (Prevent accidental usage)
-                if (!HasKey(owner.Player, door.KeyId) && HasKey(owner.Player, "673e1f10aaf0fe810c488218"))
+                if (HasKey(owner.Player, "673e1f10aaf0fe810c488218"))
                 {
-                    __result.Actions.Add(new ActionsTypesClass
+                    // Makes sure the Skeleton Key is always after the "Unlock" option and before the "Breach" option
+                    int Position = 1;
+
+                    if (!HasKey(owner.Player, door.KeyId))
+                    {
+                        Position = 0;
+                    }
+
+                    __result.Actions.Insert(Position, new ActionsTypesClass
                     {
                         Name = "Use Skeleton Key",
 
