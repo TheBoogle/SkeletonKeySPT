@@ -4,18 +4,22 @@ using System;
 
 namespace Boogle
 {
-    [BepInPlugin("com.boogle.skeletonkey", "Adds the Skeleton Key Item", "1.0.5")]
-    public class skeletonkey : BaseUnityPlugin
+    [BepInPlugin("com.boogle.skeletonkey", "Adds the Skeleton Key Item", "1.0.6")]
+    public class Skeletonkey : BaseUnityPlugin
     {
-        public static ManualLogSource Log {  get; private set; }
+        public static string keyID = "673e1f10aaf0fe810c488218";
+        public static string keycardID = "673e213fc6be39d06423d6b7";
+
+        public static ManualLogSource Log { get; private set; }
         public void Awake()
         {
             Log = Logger;
 
             try
             {
-                new DoorActionMenuPatch().Enable();
                 new KeycardDoorUnlockPatch().Enable();
+                new PlayerOwnerGetKeyPatch().Enable();
+                new WorldInteractiveObjectUnlockPatch().Enable();
             }
             catch (Exception ex)
             {
