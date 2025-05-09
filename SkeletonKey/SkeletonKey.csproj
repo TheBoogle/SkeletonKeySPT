@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>W:\SPT311\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="0Harmony, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>W:\SPT311\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="BepInEx, Version=5.4.22.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>W:\SPT311\BepInEx\core\BepInEx.dll</HintPath>
@@ -77,8 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoorActionMenuPatch.cs" />
-    <Compile Include="KeycardDoorPatch.cs" />
+    <Compile Include="Patches\KeycardDoorUnlockPatch.cs" />
+    <Compile Include="Patches\PlayerOwnerGetKeyPatch.cs" />
+    <Compile Include="Patches\WorldInteractiveObjectUnlockPatch.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
